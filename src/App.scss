@@ -1,0 +1,47 @@
+$responsive-container-br: #888; 
+$navbar-bg: #333;
+
+@mixin border-radius($radius, $args) {
+  #{$args}-radius: $radius;
+  -webkit-#{$args}-radius: $radius;
+  -moz-#{$args}-radius: $radius;
+  -ms-#{$args}-radius: $radius;
+}
+
+.navbar {
+  list-style-type: none;
+  margin: 2px;
+  padding: 0;
+  overflow: hidden;
+  background-color: $navbar-bg;
+  @include border-radius(10px, border);
+  a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 16px;
+    text-decoration: none;
+  }
+  #text-container {
+    float: left;
+  }
+  .menu {
+    float: right;
+    a:hover {
+      background-color: #111;
+    }
+  }
+}
+
+.responsive-container {
+  display: flex;
+  height: 30px;
+  width: 50%;
+  background-color: $responsive-container-br;
+  border: 2px solid black;
+  left: 0;
+  right: 0;
+  display: inline-block;
+  position: fixed;
+  margin: auto;
+}
