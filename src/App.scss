@@ -1,6 +1,7 @@
-$responsive-container-br: #888; 
+$responsive-container-bg: #888; 
 $navbar-bg: #333;
 $dark-color: #111;
+$resizer-width: 4px;
 
 @mixin border-radius($radius, $args) {
   #{$args}-radius: $radius;
@@ -38,16 +39,12 @@ $dark-color: #111;
   justify-content: center;
 }
 
-.blankspace {
-}
-
 .responsive-container {
   width: 50%;
 }
 
 .responsive-component {
-  background-color: $responsive-container-br;
-  margin: 5px;
+  background-color: $responsive-container-bg;
 }
 
 #responsive-navbar {
@@ -59,7 +56,22 @@ $dark-color: #111;
     padding: 10px 16px;
     flex: 1;
     &:hover {
-      opacity: 0.3;
+      opacity: 0.7;
     }
+  }
+}
+
+$directions: left, right, top, bottom;
+
+@each $direction in $directions {
+  .#{$direction}-resizer {
+    @if ($direction == left) or ($direction == right) {
+      width: $resizer-width;
+      background-color: $responsive-container-bg;
+    } @else {
+      width: 100%;
+      height: $resizer-width;
+      background-color: $responsive-container-bg;
+    }  
   }
 }
