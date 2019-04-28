@@ -12,13 +12,16 @@ class ResponsiveContainer extends Component {
     }
   }
 
-  handleMouseMove(event) {
+  handleResize(event) {
     this.setState({
       eventX: event.clientX,
       eventY: event.clientY,
     });
     if (this.state.isMouseDown) {
       this.state.eventTarget.parentElement.parentElement.style.width = (this.state.eventX - (window.innerWidth / 4) + 'px');
+      if (this.state.eventTarget.parentElement.id === 'hyper-responsive-navbar') {
+        document.querySelector('#hyper-responsive-navbar').style.fontSize = (document.querySelector('.top-hyper-resizer').clientWidth*2.5)/100 + 'px';
+      }
     }
   }
 
@@ -39,12 +42,24 @@ class ResponsiveContainer extends Component {
 
   render() {
     return (
-      <div id="ette" onMouseUp={this.handleMouseUp.bind(this)} onMouseMove={this.handleMouseMove.bind(this)}>
+      <div id="ette" onMouseUp={this.handleMouseUp.bind(this)} onMouseMove={this.handleResize.bind(this)}>
         <div class="responsive-container">
           <div>
             <p>Responsive Navbar:</p>
             <div class="top-resizer"></div>
-            <div class="responsive-component" id="responsive-navbar">
+            <div class="responsive-navbar" id="standart-responsive-navbar">
+              <div class="left-resizer"></div>
+              <a>One</a>
+              <a>Two</a>
+              <a>Three</a>
+              <div class="right-resizer" onMouseDown={this.handleMouseDown.bind(this)}></div>
+            </div>
+            <div class="bottom-resizer"></div>
+          </div>
+          <div>
+            <p>Hyper Responsive Navbar:</p>
+            <div class="top-resizer top-hyper-resizer"></div>
+            <div class="responsive-navbar" id="hyper-responsive-navbar">
               <div class="left-resizer"></div>
               <a>One</a>
               <a>Two</a>

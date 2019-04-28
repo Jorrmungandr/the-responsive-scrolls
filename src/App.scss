@@ -43,12 +43,9 @@ $resizer-width: 8px;
   width: 50%;
 }
 
-.responsive-component {
-  background-color: $responsive-container-bg;
-}
-
-#responsive-navbar {
+.responsive-navbar {
   display: flex;
+  background-color: $responsive-container-bg;
   a {
     position: relative;
     background-color: $navbar-bg;
@@ -56,7 +53,6 @@ $resizer-width: 8px;
     text-align: center;
     padding: 10px 16px;
     flex: 1;
-    font-size: 2vw;
     &:hover {
       opacity: 0.7;
     }
