@@ -8,6 +8,7 @@ class ResponsiveContainer extends Component {
       eventX: 0,
       eventY: 0,
       isMouseDown: false,
+      eventTarget: '',
     }
   }
 
@@ -16,32 +17,30 @@ class ResponsiveContainer extends Component {
       eventX: event.clientX,
       eventY: event.clientY,
     });
-    if (this.state.isMouseDown && event.target.className === 'right-resizer') {
-      let direction = event.target.className.split('-')[0];
-        event.target.parentElement.parentElement.style.width = (this.state.eventX - (window.innerWidth/4) + 4 + 'px');
-        console.log(this.state.eventX);
-        console.log(event.target);
-        console.log('--------');
+    if (this.state.isMouseDown) {
+      this.state.eventTarget.parentElement.parentElement.style.width = (this.state.eventX - (window.innerWidth / 4) + 'px');
     }
-    // console.log(event.clientX);
   }
-  
-  handleMouseDown(event){
+
+  handleMouseDown(event) {
     this.setState({
       isMouseDown: true,
+      eventTarget: event.target,
     })
+    console.log('mousedown');
   }
-  
-  handleMouseUp(event){
+
+  handleMouseUp(event) {
     this.setState({
       isMouseDown: false,
     })
+    console.log('mouseup');
   }
 
   render() {
     return (
-      <div id="ette" onMouseUp={this.handleMouseUp.bind(this)}>
-        <div class="responsive-container" onMouseMove={this.handleMouseMove.bind(this)}>
+      <div id="ette" onMouseUp={this.handleMouseUp.bind(this)} onMouseMove={this.handleMouseMove.bind(this)}>
+        <div class="responsive-container">
           <div>
             <p>Responsive Navbar:</p>
             <div class="top-resizer"></div>
