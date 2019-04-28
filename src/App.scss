@@ -1,7 +1,7 @@
 $responsive-container-bg: #888; 
 $navbar-bg: #333;
 $dark-color: #111;
-$resizer-width: 4px;
+$resizer-width: 8px;
 
 @mixin border-radius($radius, $args) {
   #{$args}-radius: $radius;

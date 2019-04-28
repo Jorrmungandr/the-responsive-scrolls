@@ -16,16 +16,14 @@ class ResponsiveContainer extends Component {
       eventX: event.clientX,
       eventY: event.clientY,
     });
-  }
-
-  handleResize(event) {
-    if (this.state.isMouseDown) {
+    if (this.state.isMouseDown && event.target.className === 'right-resizer') {
       let direction = event.target.className.split('-')[0];
-      if (direction === 'right') {
-        // event.target.parentElement.parentElement.style.width = this.state.eventX + 'px';
-        console.log(event.target.style.height);
-      }
+        event.target.parentElement.parentElement.style.width = (this.state.eventX - (window.innerWidth/4) + 4 + 'px');
+        console.log(this.state.eventX);
+        console.log(event.target);
+        console.log('--------');
     }
+    // console.log(event.clientX);
   }
   
   handleMouseDown(event){
@@ -42,8 +40,8 @@ class ResponsiveContainer extends Component {
 
   render() {
     return (
-      <div id="ette" onMouseMove={this.handleMouseMove.bind(this)} onMouseDown={this.handleMouseDown.bind(this)} onMouseUp={this.handleMouseUp.bind(this)}>
-        <div class="responsive-container">
+      <div id="ette" onMouseUp={this.handleMouseUp.bind(this)}>
+        <div class="responsive-container" onMouseMove={this.handleMouseMove.bind(this)}>
           <div>
             <p>Responsive Navbar:</p>
             <div class="top-resizer"></div>
@@ -52,7 +50,7 @@ class ResponsiveContainer extends Component {
               <a>One</a>
               <a>Two</a>
               <a>Three</a>
-              <div class="right-resizer" onMouseMove={this.handleResize.bind(this)}></div>
+              <div class="right-resizer" onMouseDown={this.handleMouseDown.bind(this)}></div>
             </div>
             <div class="bottom-resizer"></div>
           </div>
