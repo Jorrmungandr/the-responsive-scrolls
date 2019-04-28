@@ -3,6 +3,7 @@ $navbar-bg: #333;
 $dark-color: #111;
 $resizer-width: 8px;
 $green-bg: #00b200;
+$turquoise-bg: #40e0d0;
 
 @mixin border-radius($radius, $args) {
   #{$args}-radius: $radius;
@@ -74,7 +75,10 @@ $directions: left, right, top, bottom;
     background-color: $responsive-container-bg;
     @if ($direction == left) or ($direction == right) {
       width: $resizer-width;
-      @if($direction == right) {background-color: $green-bg}
+      @if($direction == right) {
+        background-color: $green-bg;
+        cursor: pointer;
+      }
     } @else {
       width: 100%;
       height: $resizer-width;
@@ -86,3 +90,29 @@ $directions: left, right, top, bottom;
     }  
   }
 }
+
+.responsive-curve {
+  display: flex;
+  background-color: $responsive-container-bg;
+  .curve-container {
+    position: relative;
+    background-color: $navbar-bg;
+    color: white;
+    text-align: center;
+    flex: 1;
+    overflow: hidden;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+
+#curve {
+  width:100%;
+  height: 180px;
+  @include directional-border-radius(0px, 100%, 0px, 100%);
+  background-color: $turquoise-bg;
+  margin-top:-100px;
+}
+

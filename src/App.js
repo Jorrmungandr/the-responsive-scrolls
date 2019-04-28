@@ -20,7 +20,7 @@ class ResponsiveContainer extends Component {
     if (this.state.isMouseDown) {
       this.state.eventTarget.parentElement.parentElement.style.width = (this.state.eventX - (window.innerWidth / 4) + 'px');
       if (this.state.eventTarget.parentElement.id === 'hyper-responsive-navbar') {
-        document.querySelector('#hyper-responsive-navbar').style.fontSize = (document.querySelector('.top-hyper-resizer').clientWidth*2.5)/100 + 'px';
+        document.querySelector('#hyper-responsive-navbar').style.fontSize = (document.querySelector('.top-hyper-resizer').clientWidth * 2.5) / 100 + 'px';
       }
     }
   }
@@ -64,6 +64,18 @@ class ResponsiveContainer extends Component {
               <a>One</a>
               <a>Two</a>
               <a>Three</a>
+              <div class="right-resizer" onMouseDown={this.handleMouseDown.bind(this)}></div>
+            </div>
+            <div class="bottom-resizer"></div>
+          </div>
+          <div>
+            <p>Responsive Curve:</p>
+            <div class="top-resizer"></div>
+            <div class="responsive-curve">
+              <div class="left-resizer"></div>
+              <div class="curve-container">
+                <div id="curve"></div>
+              </div>
               <div class="right-resizer" onMouseDown={this.handleMouseDown.bind(this)}></div>
             </div>
             <div class="bottom-resizer"></div>
