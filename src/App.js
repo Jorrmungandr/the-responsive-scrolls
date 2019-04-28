@@ -5,8 +5,16 @@ import './App.scss';
 class ResponsiveContainer extends Component {
   render() {
     return (
-      <div class="responsive-container">
-
+      <div id="ette">
+        <div class="responsive-container">
+          <div class="responsive-component" id="responsive-navbar">
+            <a>One</a>
+            <a>Two</a>
+            <a>Three</a>
+          </div>
+          <div class="responsive-component"></div>
+          <div class="responsive-component"></div>
+        </div>
       </div>
     );
   }
@@ -20,8 +28,8 @@ class Navbar extends Component {
           <a>Made with &lt;/&gt; and &hearts; by Jorrmungandr</a>
         </div>
         <div>
-        <div class="menu"><a>Download</a></div>
-        <div class="menu"><a>Search</a></div>
+          <div class="menu"><a>Download</a></div>
+          <div class="menu"><a>Search</a></div>
         </div>
       </div>
     );

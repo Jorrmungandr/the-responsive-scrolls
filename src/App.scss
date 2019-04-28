@@ -1,5 +1,6 @@
 $responsive-container-br: #888; 
 $navbar-bg: #333;
+$dark-color: #111;
 
 @mixin border-radius($radius, $args) {
   #{$args}-radius: $radius;
@@ -9,9 +10,7 @@ $navbar-bg: #333;
 }
 
 .navbar {
-  list-style-type: none;
   margin: 2px;
-  padding: 0;
   overflow: hidden;
   background-color: $navbar-bg;
   @include border-radius(10px, border);
@@ -20,7 +19,6 @@ $navbar-bg: #333;
     color: white;
     text-align: center;
     padding: 10px 16px;
-    text-decoration: none;
   }
   #text-container {
     float: left;
@@ -33,15 +31,35 @@ $navbar-bg: #333;
   }
 }
 
-.responsive-container {
+#ette {
+  height: 100%;
   display: flex;
-  height: 30px;
+  align-items: center;
+  justify-content: center;
+}
+
+.blankspace {
+}
+
+.responsive-container {
   width: 50%;
+}
+
+.responsive-component {
   background-color: $responsive-container-br;
-  border: 2px solid black;
-  left: 0;
-  right: 0;
-  display: inline-block;
-  position: fixed;
-  margin: auto;
+  margin: 5px;
+}
+
+#responsive-navbar {
+  display: flex;
+  a {
+    background-color: $navbar-bg;
+    color: white;
+    text-align: center;
+    padding: 10px 16px;
+    flex: 1;
+    &:hover {
+      opacity: 0.3;
+    }
+  }
 }
