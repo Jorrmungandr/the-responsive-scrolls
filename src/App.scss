@@ -178,3 +178,27 @@ $directions: left, right, top, bottom;
   background-color: $turquoise-bg;
   float: right;
 }
+
+.belzier-curve-container {
+  display: flex;
+  background-color: $responsive-container-bg;
+  border: 1px solid blue;
+  margin-left: 10px;
+  #belzier-curve {
+    position: relative;
+    background-color: $navbar-bg;
+    color: white;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    flex: 1;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+.belzier-resizer{
+  border: 1px solid red;
+  float: right;
+}
