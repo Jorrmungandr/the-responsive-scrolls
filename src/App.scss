@@ -19,6 +19,19 @@ $turquoise-bg: #40e0d0;
   @include border-radius($bottom-right, border-bottom-right);
 }
 
+@mixin waveCommon($wrapper) {
+  @if($wrapper) {
+    width: 55%;
+    overflow: hidden;  
+  } @else {
+    position: relative;
+    width:108.75%;
+    height: 100px;  
+  }
+}
+
+//Responsive navbar
+
 .navbar {
   margin: 2px;
   overflow: hidden;
@@ -41,6 +54,8 @@ $turquoise-bg: #40e0d0;
   }
 }
 
+//every thing that is not the navbar is in here
+
 #ette {
   height: 100%;
   display: flex;
@@ -51,6 +66,8 @@ $turquoise-bg: #40e0d0;
 .responsive-container {
   width: 50%;
 }
+
+//the responsive navbars
 
 .responsive-navbar {
   display: flex;
@@ -70,6 +87,8 @@ $turquoise-bg: #40e0d0;
 }
 
 $directions: left, right, top, bottom;
+
+//the "borders" around the items
 
 @each $direction in $directions {
   .#{$direction}-resizer {
@@ -92,6 +111,8 @@ $directions: left, right, top, bottom;
   }
 }
 
+//The Responsive curve
+
 .responsive-curve {
   display: flex;
   background-color: $responsive-container-bg;
@@ -113,6 +134,8 @@ $directions: left, right, top, bottom;
   margin-top:-100px;
 }
 
+//The Responsive Waves
+
 .responsive-waves {
   display: flex;
   background-color: $responsive-container-bg;
@@ -128,38 +151,30 @@ $directions: left, right, top, bottom;
 }
 
 #wave1-wrapper {
-  width: 55%;
+  @include waveCommon(true);
+  margin: 27.5px 0 0 -5%;
   height: 100px;
   float: left;
-  overflow: hidden;
-  margin-top: 27px;
-  margin-left: -5%;
 }
 
 #wave2-wrapper {
-  width: 55%;
+  @include waveCommon(true);
+  margin: -27.5px -5%;
   height: 155px;
-  float: right;
   background-color: $navbar-bg;
-  overflow: hidden;
-  margin-top: -28px;
-  margin-right: -5%;
+  float: right;
 }
 
 #wave1 {
-  position: relative;
-  width:107.5%;
-  height: 100px;
+  @include waveCommon(false);
+  @include directional-border-radius(60%, 0, 60%, 0);
   background-color: $navbar-bg;
-  @include directional-border-radius(60%, 0px, 60%, 0px);
   float: left;
 }
 
 #wave2 {
-  position: relative;
-  width:110%;
-  float: right;
-  height: 100px;
+  @include waveCommon(false);
+  @include directional-border-radius(0, 60%, 0, 60%);
   background-color: $turquoise-bg;
-  @include directional-border-radius(0px, 60%, 0px, 60%);
+  float: right;
 }

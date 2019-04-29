@@ -23,11 +23,11 @@ class ResponsiveContainer extends Component {
         document.querySelector('#hyper-responsive-navbar').style.fontSize = (document.querySelector('.top-hyper-resizer').clientWidth * 2.5) / 100 + 'px';
       }
     } 
-    else if (this.state.isMouseDown && this.state.eventTarget.className.split('-')[0] === 'bottom') {
-      document.querySelector('.responsive-curve').style.height = (this.state.eventY - 302) + 'px';
-      console.log(document.querySelectorAll('.top-resizer')[2].scrollTop);
-      console.log(event.clientY);
-    }
+    // else if (this.state.isMouseDown && this.state.eventTarget.className.split('-')[0] === 'bottom') {
+    //   document.querySelector('.responsive-curve').style.height = (this.state.eventY - 302) + 'px';
+    //   console.log(document.querySelectorAll('.top-resizer')[2].scrollTop);
+    //   console.log(event.clientY);
+    // }
   }
 
   handleMouseDown(event) {
@@ -82,8 +82,20 @@ class ResponsiveContainer extends Component {
               </div>
               <div class="right-resizer" onMouseDown={this.handleMouseDown.bind(this)}></div>
             </div>
-            <div class="bottom-resizer" onMouseDown={this.handleMouseDown.bind(this)}></div>
+            <div class="bottom-resizer"></div>
           </div>
+          {/* <p>Responsive Belzier Curve:</p>
+          <div>
+            <div class="top-resizer"></div>
+            <div class="responsive-belzier-curve">
+              <div class="left-resizer"></div>
+              <div class="belzier-curve-container">
+                <div id="belzier-curve"></div>
+              </div>
+              <div class="right-resizer" onMouseDown={this.handleMouseDown.bind(this)}></div>
+            </div>
+            <div class="bottom-resizer"></div>
+          </div> */}
           <p>Responsive Waves:</p>
           <div>
             <div class="top-resizer"></div>
