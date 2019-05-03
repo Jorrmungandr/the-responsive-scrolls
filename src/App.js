@@ -1,30 +1,32 @@
 import React, { Component } from 'react';
 import './App.scss';
+import ResponsiveNavbar from './components/respons-nav/respons-nav.jsx';
+import HyperResponsiveNavbar from './components/respons-nav/hyper-respons-nav.jsx'
 
-class ResponsiveNavbarComponent extends Component {
-  constructor(props) {
-    super(props);
-  }
+// class ResponsiveNavbarComponent extends Component {
+//   constructor(props) {
+//     super(props);
+//   }
 
-  render() {
-    return(
-      <div>
-        <p>{this.props.name}:</p>
-          <div>
-            <div class={this.props.resizerClass} ></div>
-            <div class={this.props.class} id={this.props.id}>
-              <div class="left-resizer"></div>
-              <a>One</a>
-              <a>Two</a>
-              <a>Three</a>
-              <div class="right-resizer" onMouseDown={this.props.handleMouseDown}></div>
-            </div>
-            <div class="bottom-resizer"></div>
-          </div>
-      </div>
-    )
-  }
-}
+//   render() {
+//     return(
+//       <div>
+//         <p>{this.props.name}:</p>
+//           <div>
+//             <div class={this.props.resizerClass} ></div>
+//             <div class={this.props.class} id={this.props.id}>
+//               <div class="left-resizer"></div>
+//               <a>One</a>
+//               <a>Two</a>
+//               <a>Three</a>
+//               <div class="right-resizer" onMouseDown={this.props.handleMouseDown}></div>
+//             </div>
+//             <div class="bottom-resizer"></div>
+//           </div>
+//       </div>
+//     )
+//   }
+// }
 
 class ResponsiveContainer extends Component {
   constructor(props) {
@@ -68,10 +70,6 @@ class ResponsiveContainer extends Component {
       isMouseDown: true,
       eventTarget: event.target,
     });
-    console.log(event.target.clientWidth);
-    console.log('-----------------');
-    console.log(event.target.clientHeight);
-    console.log('-----------------');
   }
 
   handleMouseUp(event) {
@@ -85,8 +83,8 @@ class ResponsiveContainer extends Component {
     return (
       <div id="ette" onMouseUp={this.handleMouseUp.bind(this)} onMouseMove={this.handleResize.bind(this)}>
         <div class="responsive-container">
-        <ResponsiveNavbarComponent name="Responsive Navbar" resizerClass="top-resizer" class="responsive-navbar" id="standart-responsive-navbar" handleMouseDown={this.handleMouseDown.bind(this)}/>
-        <ResponsiveNavbarComponent name="Hyper Responsive Navbar" resizerClass="top-resizer top-hyper-resizer" class="responsive-navbar" id="hyper-responsive-navbar" handleMouseDown={this.handleMouseDown.bind(this)}/>
+        <ResponsiveNavbar handleMouseDown={this.handleMouseDown.bind(this)} />
+        <HyperResponsiveNavbar handleMouseDown={this.handleMouseDown.bind(this)} />
           <p>Responsive Curve:</p>
           <div>
             <div class="top-resizer"></div>

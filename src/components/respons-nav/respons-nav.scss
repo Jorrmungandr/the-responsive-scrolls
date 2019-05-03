@@ -1,0 +1,18 @@
+@import '../refs/refs.scss';
+
+.responsive-navbar {
+  display: flex;
+  background-color: $responsive-container-bg;
+  a {
+    position: relative;
+    background-color: $navbar-bg;
+    color: white;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    flex: 1;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}

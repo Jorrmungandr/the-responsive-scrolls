@@ -67,50 +67,6 @@ $turquoise-bg: #40e0d0;
   width: 50%;
 }
 
-//the responsive navbars
-
-.responsive-navbar {
-  display: flex;
-  background-color: $responsive-container-bg;
-  a {
-    position: relative;
-    background-color: $navbar-bg;
-    color: white;
-    text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    flex: 1;
-    &:hover {
-      opacity: 0.7;
-    }
-  }
-}
-
-$directions: left, right, top, bottom;
-
-//the "borders" around the items
-
-@each $direction in $directions {
-  .#{$direction}-resizer {
-    background-color: $responsive-container-bg;
-    @if ($direction == left) or ($direction == right) {
-      width: $resizer-width;
-      @if($direction == right) {
-        background-color: $green-bg;
-        cursor: pointer;
-      }
-    } @else {
-      width: 100%;
-      height: $resizer-width;
-      @if($direction == top) {
-        @include directional-border-radius(10px, 0px, 10px, 0px);
-      } @else {
-        @include directional-border-radius(0px, 10px, 0px, 10px);
-      }  
-    }  
-  }
-}
-
 //The Responsive curve
 
 .responsive-curve {
