@@ -5,6 +5,8 @@ import HyperResponsiveNavbar from './components/respons-nav/hyper-respons-nav.js
 import ResponsiveCurve from './components/respons-curve/respons-curve.jsx';
 import ResponsiveWave from './components/respons-wave/respons-wave.jsx';
 import Navbar from './components/navbar/navbar.jsx';
+import ResponsiveBelzierCurve from './components/respons-belzier-curve/respons-belzier-curve';
+
 
 class ResponsiveContainer extends Component {
   constructor(props) {
@@ -64,20 +66,7 @@ class ResponsiveContainer extends Component {
         <HyperResponsiveNavbar handleMouseDown={this.handleMouseDown.bind(this)} />
         <ResponsiveCurve handleMouseDown={this.handleMouseDown.bind(this)} />
         <ResponsiveWave handleMouseDown={this.handleMouseDown.bind(this)} />
-          {/* <p>Responsive Quadratic Belzier Curve:</p>
-          <div>
-            <div class="top-resizer"></div>
-            <div class="responsive-belzier-curve">
-              <div class="left-resizer"></div>
-              <div>
-                <svg height="100" class="belzier-curve-container">
-                  <path d="M150 0 L75 200 L225 200 Z" id="belzier-curve" />
-                </svg>
-              </div>
-              <div class="right-resizer belzier-resizer" onMouseDown={this.handleMouseDown.bind(this)}></div>
-            </div>
-            <div class="bottom-resizer"></div>
-          </div> */}
+        {/* <ResponsiveBelzierCurve handleMouseDown={this.handleMouseDown.bind(this)}/>  */}
         </div>
       </div>
     );

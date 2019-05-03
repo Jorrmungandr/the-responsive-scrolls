@@ -25,7 +25,7 @@ $turquoise-bg: #40e0d0;
     overflow: hidden;  
   } @else {
     position: relative;
-    width:108.75%;
+    width:108.85%;
     height: 100px;  
   }
 }
@@ -51,4 +51,15 @@ $directions: left, right, top, bottom;
       }  
     }  
   }
+}
+
+#ette {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.responsive-container {
+  width: 50%;
 }

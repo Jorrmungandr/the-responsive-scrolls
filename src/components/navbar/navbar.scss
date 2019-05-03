@@ -1,0 +1,23 @@
+@import '../refs/refs.scss';
+
+.navbar {
+  margin: 2px;
+  overflow: hidden;
+  background-color: $navbar-bg;
+  @include border-radius(10px, border);
+  a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 16px;
+  }
+  #text-container {
+    float: left;
+  }
+  .menu {
+    float: right;
+    a:hover {
+      background-color: #111;
+    }
+  }
+}
