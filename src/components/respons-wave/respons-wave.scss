@@ -1,0 +1,44 @@
+@import '../refs/refs.scss';
+
+.responsive-waves {
+  display: flex;
+  background-color: $responsive-container-bg;
+  .waves-container {
+    position: relative;
+    background-color: $turquoise-bg;
+    color: white;
+    text-align: center;
+    flex: 1;
+    overflow: hidden;
+    justify-content: space-between;
+  }
+}
+
+#wave1-wrapper {
+  @include waveCommon(true);
+  margin: 27.5px 0 0 -5%;
+  height: 100px;
+  float: left;
+}
+
+#wave2-wrapper {
+  @include waveCommon(true);
+  margin: -27.5px -5%;
+  height: 155px;
+  background-color: $navbar-bg;
+  float: right;
+}
+
+#wave1 {
+  @include waveCommon(false);
+  @include directional-border-radius(60%, 0, 60%, 0);
+  background-color: $navbar-bg;
+  float: left;
+}
+
+#wave2 {
+  @include waveCommon(false);
+  @include directional-border-radius(0, 60%, 0, 60%);
+  background-color: $turquoise-bg;
+  float: right;
+}

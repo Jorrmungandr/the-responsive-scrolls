@@ -1,0 +1,22 @@
+@import '../refs/refs.scss';
+
+.responsive-curve {
+  display: flex;
+  background-color: $responsive-container-bg;
+  .curve-container {
+    position: relative;
+    background-color: $navbar-bg;
+    color: white;
+    text-align: center;
+    flex: 1;
+    overflow: hidden;
+  }
+}
+
+#curve {
+  width:100%;
+  height: 180px;
+  background-color: $turquoise-bg;
+  @include directional-border-radius(0px, 100%, 0px, 100%);
+  margin-top:-100px;
+}

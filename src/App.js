@@ -1,32 +1,10 @@
 import React, { Component } from 'react';
 import './App.scss';
 import ResponsiveNavbar from './components/respons-nav/respons-nav.jsx';
-import HyperResponsiveNavbar from './components/respons-nav/hyper-respons-nav.jsx'
-
-// class ResponsiveNavbarComponent extends Component {
-//   constructor(props) {
-//     super(props);
-//   }
-
-//   render() {
-//     return(
-//       <div>
-//         <p>{this.props.name}:</p>
-//           <div>
-//             <div class={this.props.resizerClass} ></div>
-//             <div class={this.props.class} id={this.props.id}>
-//               <div class="left-resizer"></div>
-//               <a>One</a>
-//               <a>Two</a>
-//               <a>Three</a>
-//               <div class="right-resizer" onMouseDown={this.props.handleMouseDown}></div>
-//             </div>
-//             <div class="bottom-resizer"></div>
-//           </div>
-//       </div>
-//     )
-//   }
-// }
+import HyperResponsiveNavbar from './components/respons-nav/hyper-respons-nav.jsx';
+import ResponsiveCurve from './components/respons-curve/respons-curve.jsx';
+import ResponsiveWave from './components/respons-wave/respons-wave.jsx';
+import Navbar from './components/navbar/navbar.jsx';
 
 class ResponsiveContainer extends Component {
   constructor(props) {
@@ -76,7 +54,6 @@ class ResponsiveContainer extends Component {
     this.setState({
       isMouseDown: false,
     })
-    // console.log('mouseup');
   }
 
   render() {
@@ -85,18 +62,8 @@ class ResponsiveContainer extends Component {
         <div class="responsive-container">
         <ResponsiveNavbar handleMouseDown={this.handleMouseDown.bind(this)} />
         <HyperResponsiveNavbar handleMouseDown={this.handleMouseDown.bind(this)} />
-          <p>Responsive Curve:</p>
-          <div>
-            <div class="top-resizer"></div>
-            <div class="responsive-curve">
-              <div class="left-resizer"></div>
-              <div class="curve-container">
-                <div id="curve"></div>
-              </div>
-              <div class="right-resizer" onMouseDown={this.handleMouseDown.bind(this)}></div>
-            </div>
-            <div class="bottom-resizer"></div>
-          </div>
+        <ResponsiveCurve handleMouseDown={this.handleMouseDown.bind(this)} />
+        <ResponsiveWave handleMouseDown={this.handleMouseDown.bind(this)} />
           {/* <p>Responsive Quadratic Belzier Curve:</p>
           <div>
             <div class="top-resizer"></div>
@@ -111,39 +78,6 @@ class ResponsiveContainer extends Component {
             </div>
             <div class="bottom-resizer"></div>
           </div> */}
-          <p>Responsive Waves:</p>
-          <div>
-            <div class="top-resizer"></div>
-            <div class="responsive-waves">
-              <div class="left-resizer"></div>
-              <div class="waves-container">
-                <div id="wave1-wrapper">
-                  <div id="wave1"></div>
-                </div>
-                <div id="wave2-wrapper">
-                  <div id="wave2"></div>
-                </div>
-              </div>
-              <div class="right-resizer" onMouseDown={this.handleMouseDown.bind(this)}></div>
-            </div>
-            <div class="bottom-resizer"></div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-}
-
-class Navbar extends Component {
-  render() {
-    return (
-      <div class="navbar">
-        <div id="text-container">
-          <a>Made with &lt;/&gt; and &hearts; by Jorrmungandr</a>
-        </div>
-        <div>
-          <div class="menu"><a>Download</a></div>
-          <div class="menu"><a>Search</a></div>
         </div>
       </div>
     );
