@@ -1,0 +1,29 @@
+@import '../refs/refs.scss';
+
+.responsive-ball-menu {
+  display: flex;
+  .menu-container {
+    width: 100%;
+    .ball-container {
+      display: flex;
+      align-content: center;
+    }
+    .ball-container-top {
+      justify-content: space-between;
+    }
+    .ball-container-bottom {
+      justify-content: space-evenly;
+    }
+    .ball {
+      width: 150px;
+      height: 150px;
+      background-color: red;
+      @include border-radius(50%, border);
+      @include transition-hw (1s, 1s);
+    }
+    .active {
+      width: 180px;
+      height: 180px;  
+    }
+  }
+}

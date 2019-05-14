@@ -5,7 +5,8 @@ import HyperResponsiveNavbar from './components/respons-nav/hyper-respons-nav.js
 import ResponsiveCurve from './components/respons-curve/respons-curve.jsx';
 import ResponsiveWave from './components/respons-wave/respons-wave.jsx';
 import Navbar from './components/navbar/navbar.jsx';
-import ResponsiveBelzierCurve from './components/respons-belzier-curve/respons-belzier-curve';
+import ResponsiveBelzierCurve from './components/respons-belzier-curve/respons-belzier-curve.jsx';
+import ResponsiveBallMenu from './components/respons-ball-menu/respons-ball-menu.jsx';
 
 
 class ResponsiveContainer extends Component {
@@ -16,14 +17,14 @@ class ResponsiveContainer extends Component {
       eventY: 0,
       isMouseDown: false,
       eventTarget: '',
-      belzierCoords: {
-        Ax: '',
-        Ay: '',
-        Bx: '',
-        By: '',
-        Cx: '',
-        Cy: '',
-      }
+      // belzierCoords: {
+      //   Ax: '',
+      //   Ay: '',
+      //   Bx: '',
+      //   By: '',
+      //   Cx: '',
+      //   Cy: '',
+      // }
     }
   }
 
@@ -67,6 +68,7 @@ class ResponsiveContainer extends Component {
         <ResponsiveCurve handleMouseDown={this.handleMouseDown.bind(this)} />
         <ResponsiveWave handleMouseDown={this.handleMouseDown.bind(this)} />
         {/* <ResponsiveBelzierCurve handleMouseDown={this.handleMouseDown.bind(this)}/>  */}
+        <ResponsiveBallMenu handleMouseDown={this.handleMouseDown.bind(this)} />
         </div>
       </div>
     );

@@ -19,6 +19,11 @@ $turquoise-bg: #40e0d0;
   @include border-radius($bottom-right, border-bottom-right);
 }
 
+@mixin transition-hw ($timeh, $timew) {
+  -webkit-transition: width $timew, height $timeh;
+  transition: width $timew, height $timeh;
+}
+
 @mixin waveCommon($wrapper) {
   @if($wrapper) {
     width: 55%;
