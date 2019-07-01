@@ -1,7 +1,6 @@
 @import '../refs/refs.scss';
 
 .navbar {
-  margin: 2px;
   overflow: hidden;
   background-color: $navbar-bg;
   @include border-radius(10px, border);
