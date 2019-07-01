@@ -19,7 +19,7 @@ export default class ResponsiveBelzierCurve extends Component {
             </svg>
             <div class="right-resizer belzier-resizer" onMouseDown={this.props.handleMouseDown}></div>
           </div>
-          <div class="bottom-resizer"></div>
+          <div class="bottom-resizer" onMouseDown={this.props.handleMouseDown}></div>
         </div>
       </div>
     )

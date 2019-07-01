@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import './App.scss';
+import Navbar from './components/navbar/navbar.jsx';
 import ResponsiveNavbar from './components/respons-nav/respons-nav.jsx';
 import HyperResponsiveNavbar from './components/respons-nav/hyper-respons-nav.jsx';
 import ResponsiveCurve from './components/respons-curve/respons-curve.jsx';
 import ResponsiveWave from './components/respons-wave/respons-wave.jsx';
-import Navbar from './components/navbar/navbar.jsx';
 import ResponsiveBelzierCurve from './components/respons-belzier-curve/respons-belzier-curve.jsx';
 import ResponsiveBallMenu from './components/respons-ball-menu/respons-ball-menu.jsx';
+import { gel } from './global/globalFuncs.js'
 
 
 class ResponsiveContainer extends Component {
@@ -17,15 +18,8 @@ class ResponsiveContainer extends Component {
       eventY: 0,
       isMouseDown: false,
       eventTarget: '',
-      // belzierCoords: {
-      //   Ax: '',
-      //   Ay: '',
-      //   Bx: '',
-      //   By: '',
-      //   Cx: '',
-      //   Cy: '',
-      // }
     }
+    this.handleMouseDown = this.handleMouseDown.bind(this);
   }
 
   handleResize(event) {
@@ -33,17 +27,19 @@ class ResponsiveContainer extends Component {
       eventX: event.clientX,
       eventY: event.clientY,
     });
-    if (this.state.isMouseDown && this.state.eventTarget.className.split('-')[0] === 'right') {
-      this.state.eventTarget.parentElement.parentElement.style.width = (this.state.eventX - (window.innerWidth / 4) + 'px');
-      if (this.state.eventTarget.parentElement.id === 'hyper-responsive-navbar') {
-        document.querySelector('#hyper-responsive-navbar').style.fontSize = (document.querySelector('.top-hyper-resizer').clientWidth * 2.5) / 100 + 'px';
+
+    let parent = this.state.eventTarget.parentElement;
+
+    if (this.state.isMouseDown && this.state.eventTarget.className.indexOf('right-resizer') !== -1) {
+      parent.parentElement.style.width = (this.state.eventX - (window.innerWidth / 4) + 8 + 'px');
+      console.log(parent.parentElement);
+      if (parent.id === 'hyper-responsive-navbar') {
+        parent.style.fontSize = (gel('.top-hyper-resizer').clientWidth * 2.5) / 100 + 'px';
       }
     }
-    // else if (this.state.isMouseDown && this.state.eventTarget.className.split('-')[0] === 'bottom') {
-    //   document.querySelector('.responsive-curve').style.height = (this.state.eventY - 302) + 'px';
-    //   console.log(document.querySelectorAll('.top-resizer')[2].scrollTop);
-    //   console.log(event.clientY);
-    // }
+    else if (this.state.isMouseDown && this.state.eventTarget.className.indexOf('bottom-resizer') !== -1) {
+      parent.style.height = (this.state.eventY - 302) + 'px';
+    }
   }
 
   handleMouseDown(event) {
@@ -63,12 +59,12 @@ class ResponsiveContainer extends Component {
     return (
       <div id="ette" onMouseUp={this.handleMouseUp.bind(this)} onMouseMove={this.handleResize.bind(this)}>
         <div class="responsive-container">
-        <ResponsiveNavbar handleMouseDown={this.handleMouseDown.bind(this)} />
-        <HyperResponsiveNavbar handleMouseDown={this.handleMouseDown.bind(this)} />
-        <ResponsiveCurve handleMouseDown={this.handleMouseDown.bind(this)} />
-        <ResponsiveBelzierCurve handleMouseDown={this.handleMouseDown.bind(this)}/> 
-        <ResponsiveWave handleMouseDown={this.handleMouseDown.bind(this)} />
-        <ResponsiveBallMenu handleMouseDown={this.handleMouseDown.bind(this)} />
+        <ResponsiveNavbar handleMouseDown={this.handleMouseDown} />
+        <HyperResponsiveNavbar handleMouseDown={this.handleMouseDown} />
+        <ResponsiveCurve handleMouseDown={this.handleMouseDown} />
+        <ResponsiveBelzierCurve handleMouseDown={this.handleMouseDown}/> 
+        <ResponsiveWave handleMouseDown={this.handleMouseDown} />
+        <ResponsiveBallMenu handleMouseDown={this.handleMouseDown} />
         </div>
       </div>
     );

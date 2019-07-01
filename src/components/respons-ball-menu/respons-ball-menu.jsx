@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import './respons-ball-menu.scss'
+import './respons-ball-menu.scss';
+import { gelall } from '../../global/globalFuncs.js';
 
 export default class ResponsiveBallMenu extends Component {
   constructor(props) {
     super(props);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(event) {
@@ -12,9 +14,9 @@ export default class ResponsiveBallMenu extends Component {
     let classArray = event.target.className.split(' ')
 
     if (classArray.indexOf('active') < 0) {
-      [...document.querySelectorAll('.ball')].map((ball) => {
+      [...gelall('.ball')].map((ball) => {
         let ballClass = ball.className;
-        if (ballClass.split(' ').indexOf('active') >= 0) {
+        if (ballClass.indexOf('active') >= 0) {
           ball.className = ballClass.split(' active').join('');
         }
       });
@@ -35,13 +37,13 @@ export default class ResponsiveBallMenu extends Component {
             <div class="left-resizer"></div>
             <div class="menu-container">
               <div class="ball-container ball-container-top">
-                <div class="ball ball-1" onClick={this.handleClick.bind(this)}></div>
-                <div class="ball ball-2 active" onClick={this.handleClick.bind(this)}></div>
-                <div class="ball ball-3" onClick={this.handleClick.bind(this)}></div>
+                <div class="ball" onClick={this.handleClick}></div>
+                <div class="ball active" onClick={this.handleClick}></div>
+                <div class="ball" onClick={this.handleClick}></div>
               </div>
               <div class="ball-container ball-container-bottom">
-                <div class="ball ball-4" onClick={this.handleClick.bind(this)}></div>
-                <div class="ball ball-5" onClick={this.handleClick.bind(this)}></div>
+                <div class="ball" onClick={this.handleClick}></div>
+                <div class="ball" onClick={this.handleClick}></div>
               </div>
             </div>
             <div class="right-resizer" onMouseDown={this.props.handleMouseDown}></div>
