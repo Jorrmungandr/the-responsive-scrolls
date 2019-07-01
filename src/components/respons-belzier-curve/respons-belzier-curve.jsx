@@ -5,6 +5,11 @@ export default class ResponsiveBelzierCurve extends Component {
   constructor(props) {
     super(props);
   }
+
+  componentDidMount() {
+    document.querySelector('.responsive-belzier-curve').style.display = 'flex';
+  }
+
   render() {
     return (
       <div>
@@ -14,8 +19,8 @@ export default class ResponsiveBelzierCurve extends Component {
           <div class="responsive-belzier-curve">
             <div class="left-resizer"></div>
             <div>
-              <svg height="100" class="belzier-curve-container">
-                <path d="M150 0 L75 200 L225 200 Z" id="belzier-curve" />
+              <svg height="100%" width="100%" viewBox="0 0 100 50" style={{background: '#333',color: 'turquoise',}} class="belzier-curve-container">
+                <path d="M0,0 Q50,100 100,0 Z" id="belzier-curve" fill="turquoise"/>
               </svg>
             </div>
             <div class="right-resizer belzier-resizer" onMouseDown={this.props.handleMouseDown}></div>

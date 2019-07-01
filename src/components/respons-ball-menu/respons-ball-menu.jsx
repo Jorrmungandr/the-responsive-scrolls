@@ -11,18 +11,18 @@ export default class ResponsiveBallMenu extends Component {
 
     let classArray = event.target.className.split(' ')
 
-    if (classArray.indexOf('active') === -1) {
-      [...document.querySelectorAll('.ball')].map((each) => {
-        let eachClass = each.className;
-        if (eachClass.split(' ').indexOf('active') !== -1) {
-          each.className = eachClass.split(' active').join('');
+    if (classArray.indexOf('active') < 0) {
+      [...document.querySelectorAll('.ball')].map((ball) => {
+        let ballClass = ball.className;
+        if (ballClass.split(' ').indexOf('active') >= 0) {
+          ball.className = ballClass.split(' active').join('');
         }
       });
       target.className += ' active';
     } 
-    else {
-      target.className = target.className.split(' active').join('');
-    }
+    // else {
+    //   target.className = target.className.split(' active').join('');
+    // }
   }
 
   render() {

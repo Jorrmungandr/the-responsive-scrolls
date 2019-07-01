@@ -66,8 +66,8 @@ class ResponsiveContainer extends Component {
         <ResponsiveNavbar handleMouseDown={this.handleMouseDown.bind(this)} />
         <HyperResponsiveNavbar handleMouseDown={this.handleMouseDown.bind(this)} />
         <ResponsiveCurve handleMouseDown={this.handleMouseDown.bind(this)} />
+        <ResponsiveBelzierCurve handleMouseDown={this.handleMouseDown.bind(this)}/> 
         <ResponsiveWave handleMouseDown={this.handleMouseDown.bind(this)} />
-        {/* <ResponsiveBelzierCurve handleMouseDown={this.handleMouseDown.bind(this)}/>  */}
         <ResponsiveBallMenu handleMouseDown={this.handleMouseDown.bind(this)} />
         </div>
       </div>
